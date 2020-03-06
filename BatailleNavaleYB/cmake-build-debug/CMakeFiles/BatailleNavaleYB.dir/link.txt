@@ -1,0 +1,3 @@
+"C:\Program Files\JetBrains\CLion 2019.2.5\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\BatailleNavaleYB.dir/objects.a
+C:\MinGW\mingw32\bin\ar.exe cr CMakeFiles\BatailleNavaleYB.dir/objects.a @CMakeFiles\BatailleNavaleYB.dir\objects1.rsp
+C:\MinGW\mingw32\bin\gcc.exe -g   -Wl,--whole-archive CMakeFiles\BatailleNavaleYB.dir/objects.a -Wl,--no-whole-archive  -o BatailleNavaleYB.exe -Wl,--out-implib,libBatailleNavaleYB.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\BatailleNavaleYB.dir\linklibs.rsp
