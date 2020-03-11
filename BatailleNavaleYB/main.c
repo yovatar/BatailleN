@@ -1,3 +1,12 @@
+/**
+ * @author yoann bonzon
+ * @date 11.03.2020
+ * @version 0.1
+ * @details creation du menu
+ */
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -12,9 +21,10 @@ int accueil(int choix) {
     scanf("%d",&choix);
     return choix;
 }
-//int witcher(){
-  //  return 0
-//}
+int witcher(){
+
+   return 0
+}
 
 int main() {
     int accueilChoix=5;
