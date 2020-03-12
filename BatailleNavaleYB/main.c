@@ -4,12 +4,8 @@
  * @version 0.1
  * @details creation du menu
  */
-
-
-
 #include <stdio.h>
 #include <stdlib.h>
-
 
 int accueil(int choix) {
     printf("-----Bataille Navale-----\n");
@@ -21,13 +17,34 @@ int accueil(int choix) {
     scanf("%d",&choix);
     return choix;
 }
-int witcher(){
+int witcher(int choix){
 
-   return 0
+    switch (choix){
+        case 1:{
+            printf("-----BON JEUX-----");
+            break;
+        }
+        case 2:{
+            printf("-----PSEUDO DU JEUX ET SCORE");
+            break;
+        }
+        case 3:{
+            printf("\n-----AiDE JEUX-----\n");
+            printf("");
+            printf("");
+
+            break;
+        }
+        case 4:{
+            break;
+        }
+    }
+   return choix;
 }
 
 int main() {
     int accueilChoix=5;
     accueilChoix=accueil(accueilChoix);
+    witcher(accueilChoix);
     return 0;
 }
