@@ -6,13 +6,15 @@
  */
 /**
  * @version 0.1
- * @details Menu jouer aide et quitter disponible
+ * @details Menu jouer, aide et quitter disponible
  */
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
 //integration des Caractére spéciaux
 #pragma execution_character_set("utf-8")
+#define CASEGX 10
+#define CASEGY 10
 
 //fonction qui donne les choix du Menu
 int accueil(int choix) {
@@ -28,35 +30,43 @@ int accueil(int choix) {
 
 int sadwich() {
     int casex, casey;
-    const int grille[casex][casey] = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
+    int caseGx,caseGy;
+    const int grille[CASEGX][CASEGY] = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
 
+    const int dimentonsGrille = 10;
+
+    int x,y;
+    system("cls");
 
     printf("-----BON JEUX-----");
-    printf("\n   1  2  3  4  5  6  7  8  9  10");
-    printf("\nA  /  /  /  /  /  /  /  /  /  /  ");
-    printf("\nB  /  /  /  /  /  /  /  /  /  /  ");
-    printf("\nC  /  /  /  /  /  /  /  /  /  /  ");
-    printf("\nD  /  /  /  /  /  /  /  /  /  /  ");
-    printf("\nE  /  /  /  /  /  /  /  /  /  /  ");
-    printf("\nF  /  /  /  /  /  /  /  /  /  /  ");
-    printf("\nG  /  /  /  /  /  /  /  /  /  /  ");
-    printf("\nH  /  /  /  /  /  /  /  /  /  /  ");
-    printf("\nI  /  /  /  /  /  /  /  /  /  /  ");
-    printf("\nJ  /  /  /  /  /  /  /  /  /  /  ");
-    printf("\ndonner une case a attacker");
-    printf("\ndonner l'axe horizontal");
-    scanf("%d", &casex);
-    printf("\ndonner l'axe vertical");
-    scanf("%d", &casey);
+    printf("\n   A   B   C   D   E   F   G   H   I   J\n");
+
+    for(y=1;y <= dimentonsGrille;y++){
+        printf("%2d",y);
+        printf("|");
+        for(x=1;x<= dimentonsGrille;x++){
+            if(grille[x][y] == 1){
+                printf(" %c ",254);
+
+            }else{
+                printf("   ");
+            }
+            printf("|");
+        }
+        printf("\n");
+    }
+
+system("pause");
+
 
 }
 
