@@ -14,7 +14,7 @@
 //integration des Caractére spéciaux
 #pragma execution_character_set("utf-8")
 
-//variable qui donne les choix du Menu
+//fonction qui donne les choix du Menu
 int accueil(int choix) {
     printf("-----Bataille Navale-----\n");
     printf("\n-Bien venu sur la Bataille Navale Choisisez une option-\n");
@@ -27,6 +27,19 @@ int accueil(int choix) {
 }
 
 int sadwich() {
+    int casex, casey;
+    const int grille[casex][casey] = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                      {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
+
+
     printf("-----BON JEUX-----");
     printf("\n   1  2  3  4  5  6  7  8  9  10");
     printf("\nA  /  /  /  /  /  /  /  /  /  /  ");
@@ -39,6 +52,12 @@ int sadwich() {
     printf("\nH  /  /  /  /  /  /  /  /  /  /  ");
     printf("\nI  /  /  /  /  /  /  /  /  /  /  ");
     printf("\nJ  /  /  /  /  /  /  /  /  /  /  ");
+    printf("\ndonner une case a attacker");
+    printf("\ndonner l'axe horizontal");
+    scanf("%d", &casex);
+    printf("\ndonner l'axe vertical");
+    scanf("%d", &casey);
+
 }
 
 int pseudo() {
@@ -54,9 +73,10 @@ int aide() {
     printf("\nX = Case Attaquer");
     printf("\nT = Touché");
     printf("\nC = Coulée");
+
 }
 
-//variable qui gére le switche en reponse au menu
+//fonction qui gére le switche en reponse au menu
 int witcher(int choix) {
 
     switch (choix) {
