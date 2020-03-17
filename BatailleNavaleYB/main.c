@@ -15,6 +15,18 @@
 #pragma execution_character_set("utf-8")
 #define CASEGX 10
 #define CASEGY 10
+#define dimentonsGrille 10
+
+int grille[dimentonsGrille][dimentonsGrille] = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                                {0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+                                                {0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+                                                {0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+                                                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                                {0, 0, 0, 0, 0, 1, 1, 1, 0, 0},
+                                                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
 
 //fonction qui donne les choix du Menu
 int accueil(int choix) {
@@ -28,47 +40,106 @@ int accueil(int choix) {
     return choix;
 }
 
-int sadwich() {
-    int casex, casey;
-    int caseGx,caseGy;
-    const int grille[CASEGX][CASEGY] = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
+void sadwich() {
 
-    const int dimentonsGrille = 10;
 
-    int x,y;
+    int x, y;
     system("cls");
 
     printf("-----BON JEUX-----");
-    printf("\n   A   B   C   D   E   F   G   H   I   J\n");
+    printf("\n    A   B   C   D   E   F   G   H   I   J\n");
 
-    for(y=1;y <= dimentonsGrille;y++){
-        printf("%2d",y);
+    for (y = 0; y <= dimentonsGrille - 1; y++) {
+        printf("%2d", y + 1);
         printf("|");
-        for(x=1;x<= dimentonsGrille;x++){
-            if(grille[x][y] == 1){
-                printf(" %c ",254);
+        for (x = 0; x <= dimentonsGrille - 1; x++) {
+            int test = 3;
+            switch (grille[y][x]) {
 
-            }else{
-                printf("   ");
+                case 1: {
+                    printf("   ");
+                    break;
+                }
+                case 2: {
+                    printf(" X ");
+                    break;
+                }
+                case 3: {
+                    printf(" T ");
+                    break;
+                }
+                case 4: {
+                    printf(" C ");
+                    break;
+                }
+                default: {
+                    printf("   ");
+                    break;
+                }
             }
+
             printf("|");
         }
         printf("\n");
     }
 
-system("pause");
+
 
 
 }
+
+void tir() {
+    char posY, posX;
+    int j;
+    printf("\n");
+
+    do {
+        printf("Choisissez la position horizontale (A - J): ");
+        scanf("%s", &posX);
+
+        for (j = 0; j <= dimentonsGrille; j++) {
+            if (posX == j + 97 || posX == j + 65) posX = j;
+        }
+    } while (posX < 0 || posX > dimentonsGrille);
+
+    do {
+        printf("Choisissez la position vertical (1 - 10):");
+        scanf("%d", &posY);
+        posY--;
+    } while (posY < 0 || posY > dimentonsGrille);
+
+
+
+    switch (grille[posY][posX]) {
+        case 0:{
+            grille[posY][posX] = 2;
+            break;
+        }
+        case 1:{
+            grille[posY][posX] = 3;
+            break;
+        }
+        default:{
+            printf("\nVous ne pouvez pas retirer deux fois sur la même case");
+            tir();
+            break;
+        }
+    }
+
+}
+
+void jeu(){
+    int i;
+
+    for(i=0;i<=3;i++){
+        sadwich();
+        tir();
+    }
+
+    sadwich();
+    system("pause");
+}
+
 
 int pseudo() {
     printf("\n-----Menu de Création de Pseudo pour la Bataille Naval-----\n");
@@ -92,7 +163,7 @@ int witcher(int choix) {
     switch (choix) {
         //Menu Jouer
         case 1: {
-            sadwich();
+            jeu();
             break;
         }
             //Menu Pseudo et Score
