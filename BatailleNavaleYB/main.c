@@ -8,6 +8,10 @@
  * @version 0.1
  * @details Menu jouer, aide et quitter disponible
  */
+ /**
+  * @version 0.1.1
+  * @details les fonction sont mieux appeler et menu aide dispo et quitter fonctionne
+  */
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
@@ -22,10 +26,10 @@ int grille[dimentonsGrille][dimentonsGrille] = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                                                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                                                 {0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
                                                 {0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
-                                                {0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
+                                                {0, 0, 0, 1, 0, 0, 0, 1, 1, 0},
                                                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                                                 {0, 0, 0, 0, 0, 1, 1, 1, 0, 0},
-                                                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                                {0, 1, 0, 0, 0, 0, 0, 0, 0, 0},
                                                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}};
 
 //fonction qui donne les choix du Menu
@@ -40,7 +44,7 @@ int accueil(int choix) {
     return choix;
 }
 
-void sadwich() {
+void GrilleJeux() {
 
 
     int x, y;
@@ -84,8 +88,6 @@ void sadwich() {
     }
 
 
-
-
 }
 
 void tir() {
@@ -109,17 +111,16 @@ void tir() {
     } while (posY < 0 || posY > dimentonsGrille);
 
 
-
     switch (grille[posY][posX]) {
-        case 0:{
+        case 0: {
             grille[posY][posX] = 2;
             break;
         }
-        case 1:{
+        case 1: {
             grille[posY][posX] = 3;
             break;
         }
-        default:{
+        default: {
             printf("\nVous ne pouvez pas retirer deux fois sur la même case");
             tir();
             break;
@@ -128,15 +129,15 @@ void tir() {
 
 }
 
-void jeu(){
+void jeu() {
     int i;
 
-    for(i=0;i<=3;i++){
-        sadwich();
+    for (i = 0; i <= 20; i++) {
+        GrilleJeux();
         tir();
     }
 
-    sadwich();
+    GrilleJeux();
     system("pause");
 }
 
@@ -145,7 +146,9 @@ int pseudo() {
     printf("\n-----Menu de Création de Pseudo pour la Bataille Naval-----\n");
     printf("\n1 - Choisire un pseudo");
     printf("\n2 - Supprimer Ancien Pseudo");
-    printf("\n3 - Voir le Score");
+    printf("\n3 - Voir le Score\n");
+    system("pause");
+
 }
 
 int aide() {
@@ -153,12 +156,15 @@ int aide() {
     printf("\nO = Bateaux placé");
     printf("\nX = Case Attaquer");
     printf("\nT = Touché");
-    printf("\nC = Coulée");
+    printf("\nC = Coulée\n");
+    system("pause");
 
 }
 
+
+
 //fonction qui gére le switche en reponse au menu
-int witcher(int choix) {
+void MenuJeux(int choix) {
 
     switch (choix) {
         //Menu Jouer
@@ -178,18 +184,17 @@ int witcher(int choix) {
         }
             //Bah quitter
         case 4: {
-            system("pause");
-            return 0;
+            break;
         }
     }
-    return choix;
 }
+
 
 // Fonction principale Main
 int main() {
     SetConsoleOutputCP(65001);
     int accueilChoix = 5;
     accueilChoix = accueil(accueilChoix);
-    witcher(accueilChoix);
+    MenuJeux(accueilChoix);
     return 0;
 }
