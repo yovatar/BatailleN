@@ -21,6 +21,7 @@
 #define CASEGY 10
 #define dimentonsGrille 10
 #define score 0
+ char nom [15];
 
 int grille[dimentonsGrille][dimentonsGrille] = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                                                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -47,10 +48,10 @@ int accueil(int choix) {
 
 //fonction qui crées la grille de jeux
 void GrilleJeux() {
-
     int x, y;
     system("cls");
-
+    printf("donner votre nom : ");
+    scanf("%s",&nom);
     printf("-----BON JEUX-----");
     printf("\n    A   B   C   D   E   F   G   H   I   J\n");
 
@@ -98,7 +99,8 @@ void tir() {
     printf("\n");
 
     do {
-        printf("\nscore = %d    ",score+1);
+        printf("\nscore de %s = %d    ",nom,score+1);
+
         printf("Choisissez la position horizontale (A - J): ");
         scanf("%s", &posX);
 
