@@ -20,10 +20,11 @@
 #define CASEGX 10
 #define CASEGY 10
 #define dimentonsGrille 10
+#define score 0
 
 int grille[dimentonsGrille][dimentonsGrille] = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                                                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
-                                                {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                                                {0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
                                                 {0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
                                                 {0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
                                                 {0, 0, 0, 1, 0, 0, 0, 1, 1, 0},
@@ -37,15 +38,15 @@ int accueil(int choix) {
     printf("-----Bataille Navale-----\n");
     printf("\n-Bien venu sur la Bataille Navale Choisisez une option-\n");
     printf("\n1-Jouer");
-    printf("\n2-pseudo");
+    printf("\n2-Score");
     printf("\n3-aide");
     printf("\n4-quitter\n");
     scanf("%d", &choix);
     return choix;
 }
 
+//fonction qui crées la grille de jeux
 void GrilleJeux() {
-
 
     int x, y;
     system("cls");
@@ -70,6 +71,7 @@ void GrilleJeux() {
                 }
                 case 3: {
                     printf(" T ");
+                    score+1;
                     break;
                 }
                 case 4: {
@@ -96,6 +98,7 @@ void tir() {
     printf("\n");
 
     do {
+        printf("\nscore = %d    ",score+1);
         printf("Choisissez la position horizontale (A - J): ");
         scanf("%s", &posX);
 

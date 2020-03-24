@@ -1,4 +1,4 @@
-C:\Users\yoann\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\193.6494.38\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\yoann\Documents\GitHub\BatailleN\BatailleNavaleYB
+C:\Users\yoann\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\193.6911.21\bin\cmake\win\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\yoann\Documents\GitHub\BatailleN\BatailleNavaleYB
 -- Configuring done
 -- Generating done
 -- Build files have been written to: C:/Users/yoann/Documents/GitHub/BatailleN/BatailleNavaleYB/cmake-build-debug
