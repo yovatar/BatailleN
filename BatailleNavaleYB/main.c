@@ -8,10 +8,10 @@
  * @version 0.1
  * @details Menu jouer, aide et quitter disponible
  */
- /**
-  * @version 0.1.1
-  * @details les fonction sont mieux appeler et menu aide dispo et quitter fonctionne
-  */
+/**
+ * @version 0.1.1
+ * @details les fonction sont mieux appeler et menu aide dispo et quitter fonctionne
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
@@ -21,7 +21,7 @@
 #define CASEGY 10
 #define dimentonsGrille 10
 #define score 0
- char nom [15];
+char nom[15];
 
 int grille[dimentonsGrille][dimentonsGrille] = {{0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                                                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -50,8 +50,6 @@ int accueil(int choix) {
 void GrilleJeux() {
     int x, y;
     system("cls");
-    printf("donner votre nom : ");
-    scanf("%s",&nom);
     printf("-----BON JEUX-----");
     printf("\n    A   B   C   D   E   F   G   H   I   J\n");
 
@@ -72,7 +70,6 @@ void GrilleJeux() {
                 }
                 case 3: {
                     printf(" T ");
-                    score+1;
                     break;
                 }
                 case 4: {
@@ -97,10 +94,9 @@ void tir() {
     char posY, posX;
     int j;
     printf("\n");
+    printf("\nscore de %s = %d    ", nom, score+1);
 
     do {
-        printf("\nscore de %s = %d    ",nom,score+1);
-
         printf("Choisissez la position horizontale (A - J): ");
         scanf("%s", &posX);
 
@@ -140,6 +136,8 @@ void jeu() {
     for (i = 0; i <= 20; i++) {
         GrilleJeux();
         tir();
+
+
     }
 
     GrilleJeux();
@@ -167,13 +165,15 @@ int aide() {
 }
 
 
-
 //fonction qui gére le switche en reponse au menu
 void MenuJeux(int choix) {
 
     switch (choix) {
         //Menu Jouer
         case 1: {
+            system("cls");
+            printf("donner votre nom : ");
+            scanf("%s", &nom);
             jeu();
             break;
         }
