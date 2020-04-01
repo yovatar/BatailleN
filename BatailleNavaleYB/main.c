@@ -39,9 +39,8 @@ int accueil(int choix) {
     printf("-----Bataille Navale-----\n");
     printf("\n-Bien venu sur la Bataille Navale Choisisez une option-\n");
     printf("\n1-Jouer");
-    printf("\n2-Score");
-    printf("\n3-aide");
-    printf("\n4-quitter\n");
+    printf("\n2-aide");
+    printf("\n3-quitter\n");
     scanf("%d", &choix);
     return choix;
 }
@@ -145,15 +144,6 @@ void jeu() {
 }
 
 
-int pseudo() {
-    printf("\n-----Menu de Création de Pseudo pour la Bataille Naval-----\n");
-    printf("\n1 - Choisire un pseudo");
-    printf("\n2 - Supprimer Ancien Pseudo");
-    printf("\n3 - Voir le Score\n");
-    system("pause");
-
-}
-
 int aide() {
     printf("\n-----BIEN VENU SUR L'AIDE DE LA BATAILLE NAVALE-----\n");
     printf("\nO = Bateaux placé");
@@ -177,20 +167,16 @@ void MenuJeux(int choix) {
             jeu();
             break;
         }
-            //Menu Pseudo et Score
+            //Menu aide
         case 2: {
-            pseudo();
-            break;
-        }
-            //Menu Aide
-        case 3: {
             aide();
             break;
         }
-            //Bah quitter
-        case 4: {
+            //Menu quitter
+        case 3: {
             break;
         }
+
     }
 }
 
