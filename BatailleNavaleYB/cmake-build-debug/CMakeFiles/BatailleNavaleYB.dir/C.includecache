@@ -13,4 +13,8 @@ stdlib.h
 -
 windows.h
 -
+math.h
+-
+time.h
+-
 
