@@ -266,8 +266,6 @@ void jeu() {
 
     while(nbtir<30&&nbBateauxCoules<4) {
         GrilleJeux();
-        printf("%d", grillechoisie);
-        printf("nbcoule=%d",nbBateauxCoules);
         tir();
 
     }
